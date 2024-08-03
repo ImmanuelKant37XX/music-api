@@ -3,9 +3,9 @@ import os
 import json
 import requests
 
-st.title("🎈 My new app")
+st.title(" 🎈Music-Api🎈")
 st.write(
-    "Let's start building! For help and inspiration, head over to [docs.streamlit.io](https://docs.streamlit.io/)."
+    "Comienza buscando un autor y una cancion!"
 )
 
 # Directorio donde se encuentran los archivos JSON
@@ -84,6 +84,9 @@ if filtered_canciones:
     st.write('Has seleccionado la canción:', cancion_seleccionada)
     if url_cancion:
         cancion_url = url_cancion
+        st.text('Tonalidad: '+load_ruta_autor_cancion(autor_url, cancion_url)['tonalidad']['fundamental'])
+        st.text('Tonalidad Relativa Menor:'+ load_ruta_autor_cancion(autor_url, cancion_url)['tonalidad']['relativaMenor'])
+
         st.text(load_ruta_autor_cancion(autor_url, cancion_url)['bodyCompleto'])
 
     else:
